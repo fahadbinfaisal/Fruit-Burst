@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.4.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts and Icon Links -->
+    <script src="https://kit.fontawesome.com/d7b7563d24.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -17,6 +18,11 @@
         .font-lato {
             font-family: 'Roboto', sans-serif;
         }
+        @media only screen and (max-width: 600px) {
+  .popup{
+    display: none;
+  }
+}
     </style>
 </head>
 <!-- Body starts from there -->
@@ -43,7 +49,6 @@
                         <li><a>All Fruits</a></li>
                     </ul>
                 </div>
-                <!-- <a class="btn btn-ghost normal-case text-xl">daisyUI</a> -->
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal text-base text-white px-1">
                         <li><a>Home </a></li>
@@ -60,11 +65,16 @@
                 </div>
             </div>
             <div class="navbar-end ">
-                <input type="text" placeholder="Type here"
-                    class="input input-bordered rounded-3xl w-full max-w-xs col" />
+                <div class="relative">
+                    <input type="text" placeholder="Type here"
+                    class="input input-bordered rounded-3xl pr-20 w-full max-w-xs col" />
+                </div>
+                    <div class="absolute ">
+                        <i class="fa-solid fa-magnifying-glass " style="color: #1f2838;"></i>
+                    </div>
             </div>
         </div>
-        <!-- This is banner -->
+        <!--=======This is banner=========-->
         <div class="carousel w-full mt-12 relative">
             <!-- Slide 1 -->
             <div id="slide1" class="carousel-item relative min-h-full w-full">
@@ -136,28 +146,16 @@
             </div>
             <div id="slide5" class="carousel-item relative w-full">
                 <img src="./images/banner4.png" class="w-full" />
-                <!-- <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide3" class="btn btn-circle">❮</a>
-                    <a href="#slide1" class="btn btn-circle">❯</a>
-                </div> -->
             </div>
         </div>
-        <!-- small section -->
-        <!-- <div class="container  flex justify-center p-10 space-x-16 bg-white absolute -bottom-8 w-calc[100%-60px]">
-            <img src="./images/fruit1.png" alt="">
-            <img src="./images/fruit2.png" alt="">
-            <img src="./images/fruit3.png" alt=""> 
-            <img src="./images/fruit4.png" alt="">
-            <img src="./images/fruit5.png" alt="">
 
-        </div> -->
     </header>
     <!-- This is main section -->
     <main class="container mx-auto">
         <!-- Fruits Displayed -->
-        <div class=" flex justify-center">
+        <div class=" flex justify-center popup">
             <div
-                class="flex py-10 px-28 space-x-12 justify-center bg-white drop-shadow-lg rounded-lg absolute -bottom-6 ">
+                class="flex py-10 px-28 space-x-12 justify-center popup bg-white drop-shadow-lg rounded-lg absolute -bottom-6 ">
                 <img src="./images/fruit1.png" alt="">
                 <img src="./images/fruit2.png" alt="">
                 <img src="./images/fruit3.png" alt="">
@@ -167,40 +165,41 @@
         </div>
         <section class="mt-48">
             <!-- This is Carts Info -->
-            <div class="flex justify-between">
+            <div class="flex-col  lg:flex lg:flex-row lg:justify-between">
                 <div>
                     <div>
                         <h2 class="text-5xl font-extralight">Deal of the day</h2>
                     </div>
                     <div>
                         <p class="text-base font-bold text-[#12121299] mt-6">Contrary to popular belief, is not simply
-                            random text. It has roots in a piece of classical <br> Latin literature from 45 BC, making it
+                            random text. It has roots in a piece of classical <br> Latin literature from 45 BC, making
+                            it
                             over 2000 years old.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="grid grid-flow-col gap-5 text-center auto-cols-max">
+                    <div class="grid grid-flow-col gap-2 text-center items-center justify-center auto-cols-max">
                         <div class="flex flex-col p-2 ">
                             <span class="countdown font-mono text-5xl">
                                 <span style="--value:29;"></span>
                             </span>
                             days
                         </div>
+                        <i class="fa-solid fa-ellipsis-vertical text-2xl" style="color: #12121299;"></i>
                         <div class="flex flex-col p-2 ">
                             <span class="countdown font-mono text-5xl">
                                 <span style="--value:15;"></span>
                             </span>
                             hours
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 6.75C11.8011 6.75 11.6103 6.67098 11.4697 6.53033C11.329 6.38968 11.25 6.19891 11.25 6C11.25 5.80109 11.329 5.61032 11.4697 5.46967C11.6103 5.32902 11.8011 5.25 12 5.25C12.1989 5.25 12.3897 5.32902 12.5303 5.46967C12.671 5.61032 12.75 5.80109 12.75 6C12.75 6.19891 12.671 6.38968 12.5303 6.53033C12.3897 6.67098 12.1989 6.75 12 6.75ZM12 12.75C11.8011 12.75 11.6103 12.671 11.4697 12.5303C11.329 12.3897 11.25 12.1989 11.25 12C11.25 11.8011 11.329 11.6103 11.4697 11.4697C11.6103 11.329 11.8011 11.25 12 11.25C12.1989 11.25 12.3897 11.329 12.5303 11.4697C12.671 11.6103 12.75 11.8011 12.75 12C12.75 12.1989 12.671 12.3897 12.5303 12.5303C12.3897 12.671 12.1989 12.75 12 12.75ZM12 18.75C11.8011 18.75 11.6103 18.671 11.4697 18.5303C11.329 18.3897 11.25 18.1989 11.25 18C11.25 17.8011 11.329 17.6103 11.4697 17.4697C11.6103 17.329 11.8011 17.25 12 17.25C12.1989 17.25 12.3897 17.329 12.5303 17.4697C12.671 17.6103 12.75 17.8011 12.75 18C12.75 18.1989 12.671 18.3897 12.5303 18.5303C12.3897 18.671 12.1989 18.75 12 18.75Z" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
+                        <i class="fa-solid fa-ellipsis-vertical text-2xl" style="color: #12121299;"></i>
                         <div class="flex flex-col p-2 ">
                             <span class="countdown font-mono text-5xl">
                                 <span style="--value:25;"></span>
                             </span>
                             min
                         </div>
+                        <i class="fa-solid fa-ellipsis-vertical text-2xl" style="color: #12121299;"></i>
                         <div class="flex flex-col p-2 ">
                             <span class="countdown font-mono text-5xl">
                                 <span style="--value:08;"></span>
@@ -212,34 +211,366 @@
             </div>
         </section>
         <!-- Card container -->
-        <section>
-            <div> 
+        <section class="mt-16">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-[60px]">
+                <!-- Card-1 -->
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
-                      <img src="./images/fruit6.png" class="rounded-xl" />
+                        <img src="./images/fruit6.png" class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
-                      <h2 class="card-title">Shoes!</h2>
-                      <p>If a dog chews shoes whose shoes does he choose?</p>
-                      <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
-                      </div>
+                        <h2 class="card-title">12.90$ - 18.85$</h2>
+                        <span class=" text-[#12121299] font-bold">______________________</span>
+                        <p>Apples</p>
+                        <span class="mb-2">
+                            <i class="fa-solid fa-star" style="color: #F85559;"></i>
+                            <i class="fa-solid fa-star-half-stroke" style="color: #F85559;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                        </span>
+                        <div class="card-actions">
+                            <!-- Open the modal using ID.showModal() method -->
+                            <button class="text-[#F85559] font-bold" onclick="my_modal_5.showModal()">Details </button>
+                            <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                                <form method="dialog" class="modal-box bg-base-100 shadow-xl">
+                                    <!-- <div class="card w-96 bg-base-100 shadow-xl"> -->
+                                    <figure class="px-10 pt-10">
+                                        <img src="./images/fruit6.png" alt="Shoes" class="rounded-xl" />
+                                    </figure>
+                                    <div class="card-body items-center text-center">
+                                        <h2 class="card-title">Shoes!</h2>
+                                        <p class="text-base font-bold text-[#12121299] mt-6">Professional employees are
+                                            there for you to pick the most amazing and fresh fruits.</p>
+
+                                        <div class="modal-action">
+                                            <!-- if there is a button in form, it will close the modal -->
+                                            <button class="btn btn-outline btn-error">Close</button>
+                                            <button class="btn text-white bg-[#F85559] border-0">Buy Now</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </dialog>
+                        </div>
                     </div>
-                  </div>
+                </div>
+                <!-- Card-2 -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="./images/fruit7.png" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">12.90$ - 18.85$</h2>
+                        <span class=" text-[#12121299] font-bold">______________________</span>
+                        <p>Oranges</p>
+                        <span class="mb-2">
+                            <i class="fa-solid fa-star" style="color: #F85559;"></i>
+                            <i class="fa-solid fa-star-half-stroke" style="color: #F85559;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                        </span>
+                        <div class="card-actions">
+                            <!-- Open the modal using ID.showModal() method -->
+                            <button class="text-[#F85559] font-bold" onclick="my_modal_6.showModal()">Details </button>
+                            <dialog id="my_modal_6" class="modal modal-bottom sm:modal-middle">
+                                <form method="dialog" class="modal-box bg-base-100 shadow-xl">
+                                    <!-- <div class="card w-96 bg-base-100 shadow-xl"> -->
+                                    <figure class="px-10 pt-10">
+                                        <img src="./images/fruit7.png" alt="Shoes" class="rounded-xl" />
+                                    </figure>
+                                    <div class="card-body items-center text-center">
+                                        <h2 class="card-title">Oranges</h2>
+                                        <p class="text-base font-bold text-[#12121299] mt-6">Professional employees are
+                                            there for you to pick the most amazing and fresh fruits.</p>
+
+                                        <div class="modal-action">
+                                            <!-- if there is a button in form, it will close the modal -->
+                                            <button class="btn btn-outline btn-error">Close</button>
+                                            <button class="btn text-white bg-[#F85559] border-0">Buy Now</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </dialog>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card-3 -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="./images/fruit8.png" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">12.90$ - 18.85$</h2>
+                        <span class=" text-[#12121299] font-bold">______________________</span>
+                        <p>Red Dragon</p>
+                        <span class="mb-2">
+                            <i class="fa-solid fa-star" style="color: #F85559;"></i>
+                            <i class="fa-solid fa-star-half-stroke" style="color: #F85559;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                        </span>
+                        <div class="card-actions">
+                            <!-- Open the modal using ID.showModal() method -->
+                            <button class="text-[#F85559] font-bold" onclick="my_modal_7.showModal()">Details </button>
+                            <dialog id="my_modal_7" class="modal modal-bottom sm:modal-middle">
+                                <form method="dialog" class="modal-box bg-base-100 shadow-xl">
+                                    <!-- <div class="card w-96 bg-base-100 shadow-xl"> -->
+                                    <figure class="px-10 pt-10">
+                                        <img src="./images/fruit8.png" alt="Shoes" class="rounded-xl" />
+                                    </figure>
+                                    <div class="card-body items-center text-center">
+                                        <h2 class="card-title">Red Dragon</h2>
+                                        <p class="text-base font-bold text-[#12121299] mt-6">Professional employees are
+                                            there for you to pick the most amazing and fresh fruits.</p>
+
+                                        <div class="modal-action">
+                                            <!-- if there is a button in form, it will close the modal -->
+                                            <button class="btn btn-outline btn-error">Close</button>
+                                            <button class="btn text-white bg-[#F85559] border-0">Buy Now</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </dialog>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card-4 -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="./images/fruit9.png" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">12.90$ - 18.85$</h2>
+                        <span class=" text-[#12121299] font-bold">______________________</span>
+                        <p>Banana</p>
+                        <span class="mb-2">
+                            <i class="fa-solid fa-star" style="color: #F85559;"></i>
+                            <i class="fa-solid fa-star-half-stroke" style="color: #F85559;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                            <i class="fa-solid fa-star" style="color: #f09c9d;"></i>
+                        </span>
+                        <div class="card-actions">
+                            <!-- Open the modal using ID.showModal() method -->
+                            <button class="text-[#F85559] font-bold" onclick="my_modal_8.showModal()">Details </button>
+                            <dialog id="my_modal_8" class="modal modal-bottom sm:modal-middle">
+                                <form method="dialog" class="modal-box bg-base-100 shadow-xl">
+                                    <!-- <div class="card w-96 bg-base-100 shadow-xl"> -->
+                                    <figure class="px-10 pt-10">
+                                        <img src="./images/fruit9.png" alt="Shoes" class="rounded-xl" />
+                                    </figure>
+                                    <div class="card-body items-center text-center">
+                                        <h2 class="card-title">Banana</h2>
+                                        <p class="text-base font-bold text-[#12121299] mt-6">Professional employees are
+                                            there for you to pick the most amazing and fresh fruits.</p>
+
+                                        <div class="modal-action">
+                                            <!-- if there is a button in form, it will close the modal -->
+                                            <button class="btn btn-outline btn-error">Close</button>
+                                            <button class="btn text-white bg-[#F85559] border-0">Buy Now</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </dialog>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Show All Button -->
+        <div class="flex justify-center mt-16">
+            <button class="btn text-white bg-[#F85559] border-0">Show All</button>
+        </div>
+
+        <!-- Meet the team section -->
+        <section>
+            <div class="hero min-h-full w-full mt-16" style="background-image: url(images/team.png);">
+                <div class="hero-overlay bg-opacity-70"></div>
+                <div class="hero-content text-center text-neutral-content py-24">
+                    <div class="">
+                        <h1 class="mb-5 font-extrabold text-5xl">Meet the team section</h1>
+                        <p class="mb-5 mt-7 text-base font-medium">Contrary to popular belief, is not simply random
+                            text. It has roots in a piece of classical <br> Latin literature from 45 BC, making it over
+                            2000 years old.</p>
+                        <div class="grid grid-cols-1 lg:grid-cols-4 space-x-32 mt-16">
+                            <div class="grid items-center justify-center">
+                                <img src="./images/member1.png" alt="">
+                                <h2 class="text-2xl font-bold mt-2">Awlad Hossain</h2>
+                                <p class="mt2">Fruits Expert</p>
+                                <div class="space-x-2 mt-2">
+                                    <i class="fa-brands fa-facebook" style="color: #F85559;"></i>
+                                    <i class="fa-brands fa-twitter" style="color: #F85559;"></i>
+                                    <i class="fa-brands fa-linkedin" style="color: #F85559;"></i>
+                                </div>
+                            </div>
+                            <div class="grid items-center justify-center">
+                                <img src="./images/member2.png" alt="">
+                                <h2 class="text-2xl font-bold mt-2">Safia Chowdhury</h2>
+                                <p>Fruits Expert</p>
+                                <div class="space-x-2 mt-2">
+                                    <i class="fa-brands fa-facebook" style="color: #F85559;"></i>
+                                    <i class="fa-brands fa-twitter" style="color: #F85559;"></i>
+                                    <i class="fa-brands fa-linkedin" style="color: #F85559;"></i>
+                                </div>
+                            </div>
+                            <div class="grid items-center justify-center">
+                                <img src="./images/member3.png" alt="">
+                                <h2 class="text-2xl font-bold mt-2">Rokib Hossain</h2>
+                                <p>Fruits Expert</p>
+                                <div class="space-x-2 mt-2">
+                                    <i class="fa-brands fa-facebook" style="color: #F85559;"></i>
+                                    <i class="fa-brands fa-twitter" style="color: #F85559;"></i>
+                                    <i class="fa-brands fa-linkedin" style="color: #F85559;"></i>
+                                </div>
+                            </div>
+                            <div class="grid items-center justify-center">
+                                <img src="./images/member4.png" alt="">
+                                <h2 class="text-2xl font-bold mt-2">Chaity</h2>
+                                <p>Fruits Expert</p>
+                                <div class="space-x-2 mt-2">
+                                    <i class="fa-brands fa-facebook" style="color: #F85559;"></i>
+                                    <i class="fa-brands fa-twitter" style="color: #F85559;"></i>
+                                    <i class="fa-brands fa-linkedin" style="color: #F85559;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-
-
-
-
-
+        <!-- Why Choose Us Section -->
+        <!-- Why choose us info -->
+        <section class="mt-16">
+            <div>
+                <h1 class="mb-5 text-center font-extrabold text-5xl">Why Choose Us</h1>
+                <p class="text-base text-center font-bold text-[#12121299] mt-6">Contrary to popular belief, is not
+                    simply
+                    random text. It has roots in a piece of classical <br> Latin literature from 45 BC, making
+                    it
+                    over 2000 years old.</p>
+            </div>
+        </section>
+        <!-- why choose us container -->
+        <div class="grid grid-cols-1 lg:flex items-center lg:justify-between mt-8 gap-12">
+            <div>
+                <!-- This is one -->
+                <div class="flex items-center gap-4">
+                    <div>
+                        <i class="fa-solid fa-users text-2xl" style="color: #12121299" ></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mt-2">Dedicated Team</h2> 
+                    <span class="">_________________</span>
+                    <p class="text-base font-bold text-[#12121299] mt-2">
+                        Professional employees are there for you to pick the most amazing and fresh fruits.
+                    </p>
+                    </div>
+                </div>
+                <!-- This is 2 -->
+                <div class="flex items-center gap-4 mt-6">
+                    <div>
+                        <i class="fa-solid fa-heart-circle-minus text-2xl" style="color: #12121299"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mt-2">Fresh is Best</h2> 
+                    <span class="">_________________</span>
+                    <p class="text-base font-bold text-[#12121299] mt-2">
+                        Professional employees are there for you to pick the most amazing and fresh fruits.
+                    </p>
+                    </div>
+                </div>
+                <!-- This is 3 -->
+                     <div class="flex items-center gap-4 mt-6">
+                    <div>
+                        <i class="fa-solid fa-gifts text-2xl" style="color: #12121299;"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mt-2">Gift Certificates</h2> 
+                    <span class="">_________________</span>
+                    <p class="text-base font-bold text-[#12121299] mt-2">
+                        Professional employees are there for you to pick the most amazing and fresh fruits.
+                    </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="./images/whychoose1.png" alt="">
+            </div>
+            <div>
+                <div>
+                     <div class="flex items-center gap-4">
+                    <div class=" text-right">
+                        <h2 class="text-2xl font-bold mt-2">Integrated Supplier</h2> 
+                    <span class="">_________________</span>
+                    <p class="text-base font-bold text-[#12121299] mt-2">
+                        Professional employees are there for you to pick the most amazing and fresh fruits.
+                    </p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-leaf text-2xl" style="color: #12121299;"></i>
+                    </div>
+                </div>
+                </div>
+                <div>
+                     <div class="flex items-center gap-4 mt-6">
+                    <div class=" text-right">
+                        <h2 class="text-2xl font-bold mt-2">Sustainable Practice</h2> 
+                    <span class="">_________________</span>
+                    <p class="text-base font-bold text-[#12121299] mt-2">
+                        Professional employees are there for you to pick the most amazing and fresh fruits.
+                    </p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-ice-cream text-2xl" style="color: #12121299;"></i>
+                    </div>
+                </div>
+                </div>
+                <div>
+                     <div class="flex items-center gap-4 mt-6">
+                    <div class=" text-right">
+                        <h2 class="text-2xl font-bold mt-2">The Benefits Only</h2> 
+                    <span class="">_________________</span>
+                    <p class="text-base font-bold text-[#12121299] mt-2">
+                        Professional employees are there for you to pick the most amazing and fresh fruits.
+                    </p>
+                    </div>
+                    <div>
+                        <i class="fa-regular fa-thumbs-up text-2xl" style="color: #12121299;"></i>                    </div>
+                </div>
+                </div>
+            
+            </div>
+        </div>
     </main>
     <!-- This is footer -->
-    <footer>
-
-    </footer>
-
+        <footer class="footer footer-center p-24 bg-black text-white mt-8">
+                <div class="flex flex-row space-x-2">
+                    <img src="./images/logo.png">
+                    <div>
+                        <h3 class="lg:text-white text-3xl font-bold">Fruit Burst</h3>
+                    </div>
+                </div>
+            <div class="grid grid-flow-col gap-16">
+              <a class="link link-hover">Home</a> 
+              <a class="link link-hover">About us</a> 
+              <a class="link link-hover">Shop</a> 
+              <a class="link link-hover">All Fruits</a> 
+              <a class="link link-hover">Support</a>
+              <a class="link link-hover">My Account</a>
+            </div> 
+            <div>
+              <div class="grid grid-flow-col gap-16">
+                <i class="fa-brands fa-twitter text-4xl" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-facebook text-4xl" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-youtube text-4xl" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-linkedin text-4xl" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-instagram text-4xl" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-apple text-4xl" style="color: #ffffff;"></i>
+            </div>
+            </div> 
+          </footer>
 </body>
-
 </html>
